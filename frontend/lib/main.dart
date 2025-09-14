@@ -1,23 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:frontend/screen/create_room_screen.dart';
+import 'package:frontend/screen/home_screen.dart';
+import 'package:frontend/screen/join_room_screen.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+    WidgetsFlutterBinding.ensureInitialized();
+
+    // Make sure fileName matches your file
+    await dotenv.load(fileName: ".env");
+
+    runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'TypeBuddy',
-      theme: ThemeData(
-        primarySwatch: Colors.blue
-      ),
-
-    );
-  }
+    const MyApp({super.key});
+    @override
+    Widget build(BuildContext context) {
+        return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'TypeBuddy',
+            theme: ThemeData(
+                colorScheme: ColorScheme.of(context).copyWith(primary: Colors.blue),
+                useMaterial3: true,
+                elevatedButtonTheme: ElevatedButtonThemeData(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue, // use your color
+                        foregroundColor: Colors.white, // text color
+                    ),
+                ),
+            ),
+            initialRoute: '/',
+            routes: {
+                '/':(context) => HomeScreen(),
+                '/create_room':(context) => CreateRoomScreen(),
+                '/join_room':(context) => JoinRoomScreen(),
+            },
+        );
+    }
 }
-
-

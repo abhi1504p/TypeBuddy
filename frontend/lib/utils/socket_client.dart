@@ -1,10 +1,10 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
-class SocketClient{
+
+class SocketClient {
     IO.Socket? socket;
     static SocketClient? _instance;
-    SocketClient._internal(){
-
+    SocketClient._internal() {
         socket = IO.io(
             dotenv.env['SOCKET_IO_URL']!,
             IO.OptionBuilder()
@@ -19,5 +19,4 @@ class SocketClient{
         _instance ??= SocketClient._internal();
         return _instance!;
     }
-
 }

@@ -12,7 +12,6 @@ class JoinRoomScreen extends StatefulWidget {
 }
 
 class _JoinRoomScreenState extends State<JoinRoomScreen> {
-
     final TextEditingController _nameController = TextEditingController();
     final TextEditingController _gameController = TextEditingController();
     @override
@@ -21,6 +20,7 @@ class _JoinRoomScreenState extends State<JoinRoomScreen> {
         _nameController.dispose();
         _gameController.dispose();
     }
+
     @override
     Widget build(BuildContext context) {
         final h = MediaQuery.of(context).size.height;
@@ -36,11 +36,23 @@ class _JoinRoomScreenState extends State<JoinRoomScreen> {
                             children: [
                                 AppText.heading("Join Room"),
                                 SizedBox(height: h * 0.06),
-                                AppInputField(obscureTexts: false, labeltext: "Enter your Nickname", controller: _nameController,)
-                                , SizedBox(height: h * 0.02),
-                                AppInputField(obscureTexts: false, labeltext: "Enter game id", controller: _gameController,)
-                                , SizedBox(height: h * 0.04),
-                                AppButton(type: ButtonType.filled, text: "Join", onPressed: () {},)
+                                AppInputField(
+                                    obscureTexts: false,
+                                    labeltext: "Enter your Nickname",
+                                    controller: _nameController,
+                                ),
+                                SizedBox(height: h * 0.02),
+                                AppInputField(
+                                    obscureTexts: false,
+                                    labeltext: "Enter game id",
+                                    controller: _gameController,
+                                ),
+                                SizedBox(height: h * 0.04),
+                                AppButton(
+                                    type: ButtonType.filled,
+                                    text: "Join",
+                                    onPressed: () {},
+                                ),
                             ],
                         ),
                     ),

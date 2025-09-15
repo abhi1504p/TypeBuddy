@@ -12,15 +12,11 @@ class HomeScreen extends StatelessWidget {
         return Scaffold(
             body: Center(
                 child: ConstrainedBox(
-                    constraints: BoxConstraints(
-                        maxWidth: 800,
-                    ),
+                    constraints: BoxConstraints(maxWidth: 800),
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                            AppText.heading(
-                                "Create /Join a room to play!",
-                            ),
+                            AppText.heading("Create /Join a room to play!"),
                             SizedBox(height: size.height * .1),
                             Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -32,7 +28,8 @@ class HomeScreen extends StatelessWidget {
                                             Navigator.pushNamed(context, '/create_room');
                                         },
                                         isHome: true,
-                                    ), AppButton(
+                                    ),
+                                    AppButton(
                                         type: ButtonType.filled,
                                         text: "Join",
                                         onPressed: () {

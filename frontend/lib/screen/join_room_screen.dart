@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/utils/socket_metod.dart';
 
 import '../core/widgets/app_button.dart';
 import '../core/widgets/app_input_field.dart';
@@ -14,6 +15,14 @@ class JoinRoomScreen extends StatefulWidget {
 class _JoinRoomScreenState extends State<JoinRoomScreen> {
     final TextEditingController _nameController = TextEditingController();
     final TextEditingController _gameController = TextEditingController();
+    final SocketMethod _socketMethod=SocketMethod();
+    @override
+    void initState() {
+        // TODO: implement initState
+        super.initState();
+        _socketMethod.updateGameListner(context);
+        _socketMethod.notCorrectGame(context);
+    }
     @override
     void dispose() {
         super.dispose();
@@ -51,7 +60,7 @@ class _JoinRoomScreenState extends State<JoinRoomScreen> {
                                 AppButton(
                                     type: ButtonType.filled,
                                     text: "Join",
-                                    onPressed: () {},
+                                    onPressed: ()=>_socketMethod.joinGame(_gameController.text, _nameController.text),
                                 ),
                             ],
                         ),

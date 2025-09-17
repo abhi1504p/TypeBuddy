@@ -44,4 +44,40 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+# More Android build artifacts
+/android/app/build/
+/android/.gradle
+/android/build/
+
+# iOS build artifacts
+/ios/build/
+/ios/Pods/
+/ios/.symlinks/
+/ios/Flutter/App.framework
+/ios/Flutter/Flutter.framework
+/ios/Flutter/ephemeral/
+/ios/Runner.xcworkspace/xcshareddata/
+/ios/Runner.xcworkspace/xcuserdata/
+
+# macOS build artifacts
+/macos/build/
+/macos/Flutter/ephemeral/
+/macos/.symlinks/
+
+# Linux build artifacts
+/linux/build/
+/linux/flutter/ephemeral/
+/linux/.symlinks/
+
+# Windows build artifacts
+/windows/build/
+/windows/flutter/ephemeral/
+/windows/.symlinks/
+
+# Web build artifacts
+/web/build/
+
+# Packages files
+.packages
+
 .env
